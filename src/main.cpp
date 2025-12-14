@@ -25,5 +25,3 @@ int main()
     std::cout << "Question 2 test passed" << std::endl;
     return 0;
 }
-
-

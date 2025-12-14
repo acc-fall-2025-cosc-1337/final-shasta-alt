@@ -4,7 +4,7 @@
 #include <ctime>
 
 #include "Die.h"
-#include "Roll.h"
+#include "Shooter.h"
 
 int main()
 {
@@ -12,16 +12,16 @@ int main()
 
     Die die1;
     Die die2;
-    Roll roll(die1, die2);
+    Shooter shooter;
 
     for(int i = 0; i < 10; i++)
     {
-        roll.roll_dice();
-        int value = roll.roll_value();
+        Roll* roll = shooter.throw_dice(die1, die2);
+        int value = roll->roll_value();
         std::cout << value << std::endl;
         assert(value >= 2 && value <= 12);
     }
 
-    std::cout << "Question 2 test passed" << std::endl;
+    std::cout << "Question 3 test passed" << std::endl;
     return 0;
 }
