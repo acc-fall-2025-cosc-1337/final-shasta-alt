@@ -1,22 +1,16 @@
-#include <iostream>
-#include <cassert>
-#include <cstdlib>
-#include <ctime>
-#include "Die.h"
+#include "Roll.h"
 
-int main()
+Roll::Roll(Die& d1, Die& d2) : die1(d1), die2(d2), rolled_value(0)
 {
-    srand(time(0));
-
-    Die die;
-
-    for(int i = 0; i < 10; i++)
-    {
-        int value = die.roll();
-        std::cout << value << std::endl;
-        assert(value >= 1 && value <= 6);
-    }
-
-    std::cout << "Question 1 test passed" << std::endl;
-    return 0;
 }
+
+void Roll::roll_dice()
+{
+    rolled_value = die1.roll() + die2.roll();
+}
+
+int Roll::roll_value() const
+{
+    return rolled_value;
+}
+
